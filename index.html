@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Hello SyntaxHighlighter</title>
+	<script type="text/javascript" src="scripts/shCore.js"></script>
+	<script type="text/javascript" src="scripts/shBrushObjC.js"></script>
+	<link type="text/css" rel="stylesheet" href="styles/shCoreDefault.css"/>
+	<script type="text/javascript">SyntaxHighlighter.all();</script>
+</head>
+
+<body style="background: white; font-family: Helvetica">
+
+<h1>Hello SyntaxHighlighter</h1>
+
+<pre class="brush: objc;">
+
+#import &lt;UIKit/UIKit.h&gt;
+
+@class CalcViewController;
+
+@interface CalcAppDelegate : NSObject &lt;UIApplicationDelegate&gt; {
+@private
+	UIWindow           *window;
+	CalcViewController *calcViewController;
+	NSString 		   *name;
+	int				   age;
+}
+
+@property (nonatomic, retain) IBOutlet UIWindow  *window;
+@property (nonatomic, retain) CalcViewController *calcViewController;
+
+@end
+</pre>
+
+<pre class="brush: objc;">
+#import "CalcViewController.h"
+
+@implementation CalcViewController
+
+@synthesize displayField;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+	if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
+		calculator = [Calculator new];
+	}
+	return self;
+}
+
+- (void) dealloc {
+	[calculator release];
+	[super dealloc];
+}
+
+- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+	return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (IBAction) press:(id)sender {
+	[calculator input:[sender titleForState:UIControlStateNormal]];
+	[displayField setText:[calculator displayValue]];
+}
+
+@end
+</pre>
+
+</html>
