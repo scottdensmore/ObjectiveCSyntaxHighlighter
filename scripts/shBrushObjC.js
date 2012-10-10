@@ -96,7 +96,7 @@
 	Brush.prototype	= new SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['obj-c', 'objc'];
 
-	SyntaxHighlighter.brushes.Cpp = Brush;
+	SyntaxHighlighter.brushes.Objc = Brush;
 
 	// CommonJS
 	typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
